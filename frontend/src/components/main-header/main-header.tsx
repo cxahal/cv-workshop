@@ -20,6 +20,7 @@ export default function MainHeader() {
           </NavLink>
 
           {/*TODO Oppgave 1.2: Legg til Erfaringer i `MainHeader.tsx` som en ny tab */}
+
         <NavLink
             to="/experiences"
             className={({ isActive }) =>
@@ -29,6 +30,7 @@ export default function MainHeader() {
           >
             Erfaringer
           </NavLink>
+
         </div>
       </header>
     </>
