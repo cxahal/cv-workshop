@@ -7,7 +7,7 @@ import { ExperienceCard } from "../components/experiences/ExperienceCard";
 
 export default function Experiences() {
   // eslint-disable-next-line @typescript-eslint/no-unused-vars
-  const [_selectedExperience, _setSelectedExperience] = useState<string | null>(
+  const [selectedExperience, setSelectedExperience] = useState<string | null>(
     null
   );
 
@@ -25,25 +25,26 @@ export default function Experiences() {
     const selectedFilter = customEvent.detail.value;
     console.log(selectedFilter);
     // TODO Oppgave 5.1: Filtrer experiences etter type
+    setSelectedExperience(selectedFilter);
   };
 
-  // const filteredExperiences = () => {
-  //   const validTypes = Object.keys(experienceTypeMap).filter(
-  //     (type) => type !== "other"
-  //   );
+  const filteredExperiences = () => {
+    const validTypes = Object.keys(experienceTypeMap).filter(
+      (type) => type !== "other"
+    );
 
-  //   if (selectedExperience === "other") {
-  //     return experiences.filter(
-  //       (experience) => !validTypes.includes(experience.type.toLowerCase())
-  //     );
-  //   } else if (selectedExperience) {
-  //     return experiences.filter(
-  //       (experience) =>
-  //         experience.type.toLowerCase() === selectedExperience.toLowerCase()
-  //     );
-  //   }
-  //   return experiences;
-  // };
+    if (selectedExperience === "other") {
+      return experiences.filter(
+        (experience) => !validTypes.includes(experience.type.toLowerCase())
+      );
+    } else if (selectedExperience) {
+      return experiences.filter(
+        (experience) =>
+          experience.type.toLowerCase() === selectedExperience.toLowerCase()
+      );
+    }
+    return experiences;
+  };
 
   if(isExperiencesLoading) {
     return (
@@ -76,7 +77,7 @@ export default function Experiences() {
         <div className={styles.experiences}>
           {/*TODO Oppgave 3.1: Vis alle erfaringene*/}
           {/* TODO Oppgave 4.1: Sorter erfaringene*/}
-          {experiences.sort((a,b) => {
+          {filteredExperiences().sort((a,b) => {
               const aDate = Date.parse(a.endDate ? a.endDate : "0");
               const bDate = Date.parse(b.endDate ? b.endDate : "0");
               return bDate - aDate; 
