@@ -1,4 +1,5 @@
 ﻿using backend.Data.Models;
+using backend.Data.Requests;
 
 namespace backend.Services;
 
@@ -11,7 +12,7 @@ public interface ICvService
     Task<User?> GetUserByIdAsync(Guid id);
 
     // TODO: Oppgave 4: ny metode - GetUsersWithDesiredSkills
-
+    Task<IEnumerable<User>> GetUsersWithDesiredSkills(IEnumerable<string> skills);
     // Experiences
     Task<IEnumerable<Experience>> GetAllExperiencesAsync();
     Task<Experience?> GetExperienceByIdAsync(Guid id);

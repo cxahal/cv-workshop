@@ -35,9 +35,16 @@ public class CvService(AppDbContext context) : ICvService
     public async Task<IEnumerable<Experience>> GetExperiencesByTypeAsync(string type)
     {
         // TODO: Oppgave 3
-        
+
         return await context.Experiences.Where(e => e.Type == type).ToListAsync();
     }
 
     // TODO: Oppgave 4 ny metode (husk å legge den til i interfacet)
+    public async Task<IEnumerable<User>> GetUsersWithDesiredSkills(IEnumerable<string> skills)
+    {
+        var users = await context.Users.Where(user =>
+            skills.Any(s => user.Skills.Contains(s))
+        ).ToListAsync(); 
+        return users;
+    } 
 }
