@@ -3,6 +3,7 @@ import styles from "./Experiences.module.css";
 import { CxOption, CxSelect } from "@computas/designsystem/select/react";
 import { experienceTypeMap } from "../types/experienceTypes";
 import { useExperiences } from "../hooks/useExperiences";
+import { ExperienceCard } from "../components/experiences/ExperienceCard";
 
 export default function Experiences() {
   // eslint-disable-next-line @typescript-eslint/no-unused-vars
@@ -74,7 +75,7 @@ export default function Experiences() {
         </div>
         <div className={styles.experiences}>
           {/*TODO Oppgave 3.1: Vis alle erfaringene*/}
-          {experiences.map(e => <div className={styles.container}><ExperienceCard key={e.id} experience={e} /></div>)}
+          {experiences.map(e => <ExperienceCard key={e.id} experience={e} />)}
 
           {/* TODO Oppgave 4.1: Sorter erfaringene*/}
         </div>
