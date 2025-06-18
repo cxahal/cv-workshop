@@ -75,9 +75,12 @@ export default function Experiences() {
         </div>
         <div className={styles.experiences}>
           {/*TODO Oppgave 3.1: Vis alle erfaringene*/}
-          {experiences.map(e => <ExperienceCard key={e.id} experience={e} />)}
-
           {/* TODO Oppgave 4.1: Sorter erfaringene*/}
+          {experiences.sort((a,b) => {
+              const aDate = Date.parse(a.endDate ? a.endDate : "0");
+              const bDate = Date.parse(b.endDate ? b.endDate : "0");
+              return bDate - aDate; 
+          }).map(e => <ExperienceCard key={e.id} experience={e} />)}
         </div>
       </div>
     );
