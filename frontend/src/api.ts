@@ -1,6 +1,6 @@
 import { User, Experience } from "./types/types";
 
-const API_URL = 'http://localhost:5007';
+const API_URL = import.meta.env.VITE_BACKEND_API_URL;
 
 export const fetchUsers = async (): Promise<User[]> => {
   try {

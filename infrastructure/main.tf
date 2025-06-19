@@ -27,12 +27,12 @@ resource "azurerm_container_app" "cv-frontend" {
       memory = "0.5Gi"
 
       env {
-        name  = "BACKEND_URL"
+        name  = "VITE_BACKEND_API_URL"
         value = "https://${azurerm_container_app.cv-backend.ingress.0.fqdn}"
       }
 
       env {
-        name  = "BACKEND_API_KEY"
+        name  = "VITE_BACKEND_API_KEY"
         value = "backend-api-key"
       }
     }
