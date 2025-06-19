@@ -26,6 +26,8 @@ COPY --from=builder /app/dist ./dist
 
 EXPOSE 3000
 
+COPY run.sh run.sh
+
 RUN chmod +x run.sh 
 
 CMD ["run.sh"]
