@@ -67,7 +67,8 @@ resource "azurerm_container_app" "cv-backend" {
   template {
     container {
       name   = "backend"
-      image  = "ghcr.io/${var.repository_owner}/cv-workshop/backend:latest"
+      image = "mcr.microsoft.com/dotnet/aspnet:9.0"
+      # image  = "ghcr.io/${var.repository_owner}/cv-workshop/backend:latest"
       cpu    = "0.25"
       memory = "0.5Gi"
 
