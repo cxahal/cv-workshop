@@ -28,4 +28,5 @@ USER application-user
 
 EXPOSE 8080
 
-ENTRYPOINT ["dotnet", "backend.dll"]
+ENTRYPOINT ["/bin/sh"]
+# ENTRYPOINT ["dotnet", "backend.dll"]
