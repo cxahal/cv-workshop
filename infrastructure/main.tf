@@ -69,6 +69,8 @@ resource "azurerm_container_app" "cv-backend" {
       name   = "backend"
       image  = "ubuntu:22.04"
       # image  = "ghcr.io/${var.repository_owner}/cv-workshop/backend:latest"
+      command = ["/bin/bash"]
+      args = ["-c", "sleep infinity"]  # Keeps container alive
       cpu    = "0.25"
       memory = "0.5Gi"
 
