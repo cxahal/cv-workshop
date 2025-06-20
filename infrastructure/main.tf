@@ -67,8 +67,8 @@ resource "azurerm_container_app" "cv-backend" {
   template {
     container {
       name   = "backend"
-      image  = "mcr.microsoft.com/dotnet/sdk:9.0"
-      # image  = "ghcr.io/${var.repository_owner}/cv-workshop/backend:latest"
+      #image  = "mcr.microsoft.com/dotnet/sdk:9.0"
+      image  = "ghcr.io/${var.repository_owner}/cv-workshop/backend:latest"
       command = ["/bin/bash"]
       args = ["-c", "sleep infinity"]  # Keeps container alive
       cpu    = "0.25"

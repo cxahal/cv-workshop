@@ -11,7 +11,7 @@ RUN dotnet restore backend.csproj && \
       --output ./out
 
 
-FROM mcr.microsoft.com/dotnet/aspnet:9.0 AS runner
+FROM mcr.microsoft.com/dotnet/sdk:9.0 AS runner
 
 WORKDIR /app
 
