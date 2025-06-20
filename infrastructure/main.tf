@@ -32,8 +32,8 @@ resource "azurerm_container_app" "cv-frontend" {
       }
 
       env {
-        name  = "VITE_BACKEND_API_KEY"
-        value = "backend-api-key"
+        name        = "VITE_BACKEND_API_KEY"
+        secret_name = "backend-api-key"
       }
     }
 
@@ -75,13 +75,13 @@ resource "azurerm_container_app" "cv-backend" {
       memory = "0.5Gi"
 
       env {
-        name  = "AppSettings__FrontendApiKey"
-        value = "frontend-api-key"
+        name        = "AppSettings__FrontendApiKey"
+        secret_name = "frontend-api-key"
       }
 
       env {
-        name  = "ConnectionStrings__DefaultConnection"
-        value = "connection-string"
+        name        = "ConnectionStrings__DefaultConnection"
+        secret_name = "connection-string"
       }
     }
 
