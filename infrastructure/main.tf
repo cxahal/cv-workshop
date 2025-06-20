@@ -70,6 +70,8 @@ resource "azurerm_container_app" "cv-backend" {
       image  = "ghcr.io/${var.repository_owner}/cv-workshop/backend:latest"
       cpu    = "0.25"
       memory = "0.5Gi"
+      command = ["/bin/bash"]
+      args = ["-c", "sleep infinity"]  # Keeps container alive
 
       env {
         name        = "AppSettings__FrontendApiKey"
@@ -79,6 +81,10 @@ resource "azurerm_container_app" "cv-backend" {
       env {
         name        = "ConnectionStrings__DefaultConnection"
         secret_name = "connection-string"
+      }
+      env {
+        name    = "FRONTEND_URL"
+        value   = "https://${azurerm_container_app.cv-frontend.ingress.0.fqdn}"
       }
     }
 
