@@ -67,7 +67,7 @@ resource "azurerm_container_app" "cv-backend" {
   template {
     container {
       name   = "backend"
-      image  = "ubuntu:22.04"
+      image  = "mcr.microsoft.com/dotnet/aspnet:9.0"
       # image  = "ghcr.io/${var.repository_owner}/cv-workshop/backend:latest"
       command = ["/bin/bash"]
       args = ["-c", "sleep infinity"]  # Keeps container alive
@@ -91,7 +91,7 @@ resource "azurerm_container_app" "cv-backend" {
   }
 
   secret {
-    name  = "fontend-api-key"
+    name  = "frontend-api-key"
     value = var.api_key
   }
 
