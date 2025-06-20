@@ -70,8 +70,8 @@ resource "azurerm_container_app" "cv-backend" {
       image  = "ghcr.io/${var.repository_owner}/cv-workshop/backend:latest"
       cpu    = "0.25"
       memory = "0.5Gi"
-      command = ["/bin/bash"]
-      args = ["-c", "sleep infinity"]  # Keeps container alive
+      # command = ["/bin/bash"]
+      # args = ["-c", "sleep infinity"]  # Keeps container alive
 
       env {
         name        = "AppSettings__FrontendApiKey"

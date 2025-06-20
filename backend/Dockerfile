@@ -28,4 +28,4 @@ USER application-user
 
 EXPOSE 8080
 
-# ENTRYPOINT ["dotnet", "backend.dll"]
+ENTRYPOINT ["dotnet", "backend.dll"]
