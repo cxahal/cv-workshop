@@ -83,8 +83,8 @@ resource "azurerm_container_app" "cv-backend" {
         secret_name = "connection-string"
       }
       env {
-        name    = "FRONTEND_URL"
-        value   = "https://${azurerm_container_app.cv-frontend.ingress.0.fqdn}"
+        name = "FRONTEND_URL"
+        value = "https://cv-frontend.${azurerm_container_app_environment.cv.default_domain}"
       }
     }
 
